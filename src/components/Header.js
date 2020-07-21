@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from './logo.svg'
 import styled from 'styled-components'
 import { NavLink, useHistory } from 'react-router-dom'
@@ -11,14 +11,14 @@ const StyleHeader = styled.header`
 background-color:#303841;
 display:flex;
 align-items:center;
-padding:10px 10px;
+padding:10px 5vw;
 `
 const StyleLogo = styled.img`
 height:25px;
 `
 const StyleLink = styled(NavLink)`
 color:#fff;
-margin-left:4vw;
+margin-left:3vw;
 &.active{
   border-bottom:1px solid #fff;
 }
@@ -33,15 +33,18 @@ const StyleButton = styled(Button)`
 const Header = observer(() => {
   const { userStore, authStore } = useStores()
   const history = useHistory()
-  const handleLogout = () => {
+  const clickLogout = () => {
     authStore.logout()
   }
-  const handleLogin = () => {
-    history.push('./login')
+  const clickLogin = () => {
+    history.push('./login') //跳转到登录页
   }
-  const handleRegister = () => {
-    history.push('./register')
+  const clickRegister = () => {
+    history.push('./register') //跳转到注册页
   }
+  useEffect(() => {
+    userStore.pullUser();
+  }, [])
 
   return (
     <StyleHeader>
@@ -54,10 +57,10 @@ const Header = observer(() => {
       <StyleDiv>
         {
           userStore.currentUser ? <>
-            {userStore.currentUser.attributes.username} <StyleButton ghost onClick={handleLogout}>注销</StyleButton>
+            {userStore.currentUser.attributes.username} <StyleButton ghost onClick={clickLogout}>注销</StyleButton>
           </> : <>
-              <StyleButton type="primary" onClick={handleLogin}>登录</StyleButton>
-              <StyleButton type="primary" onClick={handleRegister}>注册</StyleButton>
+              <StyleButton type="primary" onClick={clickLogin}>登录</StyleButton>
+              <StyleButton type="primary" onClick={clickRegister}>注册</StyleButton>
             </>
         }
       </StyleDiv>

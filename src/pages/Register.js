@@ -43,7 +43,7 @@ const Register = () => {
       .then(() => {
         history.push('/')
       }).catch(() => {
-        console.log('注册失败le')
+        console.log('注册失败')
       })
   };
 

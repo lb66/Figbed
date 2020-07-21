@@ -1,15 +1,20 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { useStores } from '../stores'
+import Uploader from '../components/Uploader'
+import { Alert } from 'antd'
+
 
 const Home = observer(() => {
   const { userStore } = useStores();
+
   return (
     <>
-      <h1 style={{ color: 'red' }}>{
-        userStore.currentUser ? <>
-          Hello,{userStore.currentUser.attributes.username}</> : '请登录'
-      }</h1>
+      {
+        userStore.currentUser ? null : <Alert message="登录后可保存上传记录" type="warning" />
+      }
+      <br />
+      <Uploader />
     </>
   )
 })
