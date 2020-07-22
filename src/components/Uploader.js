@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useStores } from '../stores'
 import { observer, useLocalStore } from 'mobx-react'
-import { Upload, message, Typography, Spin } from 'antd';
+import { Upload, message, Typography, Spin, Input } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
 // import { userStore } from '../stores/user';
@@ -99,7 +99,7 @@ const Component = observer(() => {
               </dd>
               <dt>图片预览 : </dt>
               <dd>
-                <a href={imageStore.serverFile.attributes.url.attributes.url} target='_blank'><Image src={imageStore.serverFile.attributes.url.attributes.url} /></a>
+                <a target='_blank' href={imageStore.serverFile.attributes.url.attributes.url} ><Image src={imageStore.serverFile.attributes.url.attributes.url} /></a>
               </dd>
               <dt>自定义尺寸 : </dt>
               <dd>

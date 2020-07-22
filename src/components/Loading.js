@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-function Loading() {
-  return (
-    <div>
-      loading...
-    </div>
-  )
-}
+// function Loading() {
+//   return (
+//     <div>
+//       loading...
+//     </div>
+//   )
+// }
 
-export default Loading
+// export default Loading

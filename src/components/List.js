@@ -40,14 +40,13 @@ const Components = observer(() => {
       >
         {historyStore.isLoading && historyStore.hasMore && (
           <div>
-            <Spin tip='加载中' />
+            <Spin size="large" tip='加载中' />
           </div>
         )}
       </List>
-    </InfiniteScroll>
+    </InfiniteScroll >
 
   )
 })
-
 
 export default Components

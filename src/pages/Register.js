@@ -75,7 +75,7 @@ const Register = () => {
             }
           ]}
         >
-          <Input placeholder="请输入用户名" />
+          <Input placeholder="请输入用户名" allowClear />
         </Form.Item>
 
         <Form.Item

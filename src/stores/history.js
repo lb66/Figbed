@@ -8,17 +8,17 @@ class HistoryStore {
   @observable isLoading = false
   @observable hasMore = true
   @observable page = 0
-
+  limit = 10
   @action append(newList) {
     this.list = this.list.concat(newList)
   }
   @action find() {
     this.isLoading = true
-    Uploader.find({ page: this.page, limit: 8 })
+    Uploader.find({ page: this.page, limit: this.limit })
       .then(newList => {
         this.append(newList)
         this.page++
-        if (newList.length < 8) {
+        if (newList.length < this.limit) {
           this.hasMore = false
         }
       }).catch(error => {
@@ -36,6 +36,7 @@ class HistoryStore {
   }
   @action reset() {
     this.list = []
+
     this.page = 0
   }
 

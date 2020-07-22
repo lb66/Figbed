@@ -11,7 +11,7 @@ const Home = observer(() => {
   return (
     <>
       {
-        userStore.currentUser ? null : <Alert message="登录后可保存上传记录" type="warning" />
+        userStore.currentUser ? null : <Alert message="登录后可保存上传记录" type="warning" showIcon />
       }
       <br />
       <Uploader />
