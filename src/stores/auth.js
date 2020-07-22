@@ -2,6 +2,8 @@ import { observable, action } from 'mobx';
 import { Auth } from '../models'
 import { userStore } from './user'
 import { message } from 'antd';
+import { historyStore } from './history';
+import { imageStore } from './image';
 
 class AuthStore {
   @observable values = {
@@ -25,7 +27,7 @@ class AuthStore {
           resolve(user) //执行login.js中成功代码
         }).catch(error => {
           message.error('登录失败')
-          userStore.resetUser()
+          userStore.reset()
           reject(error)
         })
     })
@@ -39,7 +41,7 @@ class AuthStore {
           resolve(user)
         }).catch(error => {
           message.error('注册失败')
-          userStore.resetUser()
+          userStore.reset()
           reject(error)
         })
     })
@@ -47,7 +49,9 @@ class AuthStore {
 
   @action logout() {
     Auth.logout()
-    userStore.resetUser()
+    userStore.reset()
+    imageStore.reset()
+    historyStore.reset()
   }
 }
 const authStore = new AuthStore()

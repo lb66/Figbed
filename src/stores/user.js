@@ -6,7 +6,7 @@ class UserStore {
   @action pullUser() {
     this.currentUser = Auth.getCurrentUser()
   }
-  @action resetUser() {
+  @action reset() {
     this.currentUser = null
   }
 

@@ -33,7 +33,10 @@ class ImageStore {
         })
     })
   }
-
+  @action reset() {
+    this.serverFile = null
+    this.isUploading = false
+  }
 }
 const imageStore = new ImageStore()
 export { imageStore }

@@ -2,6 +2,7 @@
   "name": "react-figbed",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@babel/plugin-proposal-decorators": "^7.10.4",
@@ -151,5 +152,9 @@
         }
       ]
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:lb66/Figbed.git",
+  "author": "lb66 <807242867@qq.com>",
+  "license": "MIT"
 }

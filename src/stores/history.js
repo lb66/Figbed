@@ -14,11 +14,11 @@ class HistoryStore {
   }
   @action find() {
     this.isLoading = true
-    Uploader.find({ page: this.page, limit: 10 })
+    Uploader.find({ page: this.page, limit: 8 })
       .then(newList => {
         this.append(newList)
         this.page++
-        if (newList.length < 10) {
+        if (newList.length < 8) {
           this.hasMore = false
         }
       }).catch(error => {
@@ -26,6 +26,17 @@ class HistoryStore {
       }).finally(() => {
         this.isLoading = false
       })
+  }
+
+  @action react() {
+    this.list = []
+    this.isLoading = false
+    this.hasMore = true
+    this.page = 0
+  }
+  @action reset() {
+    this.list = []
+    this.page = 0
   }
 
 }

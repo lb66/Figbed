@@ -50,7 +50,7 @@ const Uploader = {
     return new Promise((resolve, reject) => {
       query.find().then(result => resolve(result), error => reject(error))
     })
-  }
+  },
 }
 
 window.Uploader = Uploader
