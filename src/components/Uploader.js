@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useStores } from '../stores'
 import { observer, useLocalStore } from 'mobx-react'
-import { Upload, message, Typography, Spin, Input } from 'antd';
+import { Upload, message, Typography, Spin } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import styled from 'styled-components'
 // import { userStore } from '../stores/user';
@@ -56,10 +56,10 @@ const Component = observer(() => {
       //   return false
       // }
       window.file = file
-      if (!/\.(gif|jpg|jpeg|png|svg)$/.test(file.name)) {
-        message.error('只能上传图片！');
-        return false
-      }
+      // if (!/\.(gif|jpg|jpeg|png|svg)$/.test(file.name)) {
+      //   message.error('只能上传图片！');
+      //   return false
+      // }
       if (file.size > 2048 * 2048) {
         message.error('上传图片不能大于2M！');
         return false
